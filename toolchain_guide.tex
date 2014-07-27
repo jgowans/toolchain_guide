@@ -1,8 +1,25 @@
-\documentclass{scrreprt}
+\documentclass[a4paper]{scrreprt}
 
+\usepackage[utf8]{inputenc}
 \usepackage[colorlinks=true]{hyperref}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{pdflscape}
+\usepackage{rotating}
+\usepackage{afterpage}
+
+\lstdefinestyle{BashStyle}{
+  language=bash,
+  basicstyle=\small\ttfamily,
+  %numbers=left,
+  %numberstyle=\tiny,
+  %numbersep=3pt,
+  frame=tb,
+  columns=fullflexible,
+  %backgroundcolor=\color{yellow},
+  linewidth=0.9\linewidth,
+  xleftmargin=0.1\linewidth
+}
 
 \title{Building for the ARM Cortex-M0 with GNU tools}
 \author{James Gowans}
@@ -22,5 +39,9 @@ This guide does not intend to teach you programming, only building and debugging
 \newpage
 \include{./tex/introduction}
 \include{./tex/terminal}
+\include{./tex/installing}
+\include{./tex/loading}
+\include{./tex/assembling}
+\include{./tex/debugging}
 
 \end{document}
