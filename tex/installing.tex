@@ -2,24 +2,27 @@
 Now that we have some idea of the software components which we need to install in order to build and debug code, let's install them.
 
 \section{Linux Install Guide}
+This section is written for Ubuntu. If you run a different distro, you may need to modify the commands slighty at best.
 \subsection{Text Editor}
-Either Vim of Gedit will be good enough for our needs. No need to install an additional editor.
+Either Vim or Gedit will be good enough for our needs. No need to install an additional editor.
 
 \subsection{gcc-arm-none-eabi}.
-If you're running Ubuntu 14.04 or greater, the package is already in your standard repo. You can install directly.
-\begin{lstlisting}[style=BashStyle]
-$ sudo apt-get install gcc-arm-none-eabi
-\end{lstlisting}
-If you're running a previous version or a different distro you may have to first add the repo.
+The following assumes you can use PPAs. If your distro does not support PPAs you'll need to compile gcc-arm-none-eabi from source.
+Run the following commands to add the PPA to your system and install gcc-arm-none-eabi:
 \begin{lstlisting}[style=BashStyle]
 $ sudo apt-add-repository ppa:terry.guo/gcc-arm-embedded
 $ sudo apt-get update
+$ sudo apt-get install gcc-arm-none-eabi=4-8-2014q2*
+$ sudo apt-mark hold gcc-arm-none-eabi
 \end{lstlisting}
+The reason that we need to put a hold on the package after installing it is that certain versions of Ubuntu have an older version of the package in their repos, but due to an error in the version numbering system the older version is seen as a new version and hence our version gets replaced with an older version the next time you do an update. Doing a hold prevents this. \\
+
 You can check that the tools have been successfully installed, open a new terminal and run the following. 
 \begin{lstlisting}[style=BashStyle]
 $ arm-none-eabi-gdb --version
 $ arm-none-eabi-ld --version
 \end{lstlisting}
+Each command should give you some info about the tool if it's working properly. If you get something like \textit{Command not found} then it's not installed correctly.
 
 \subsection{OpenOCD}
 To get OpenOCD we will pull it from SourceForge, compile it and install it. First, the libusb-1.0 package must be installed.
@@ -55,7 +58,7 @@ Under File Types:
 The reason we do this is that the spell checker keeps underlining all of our assembly instructions because they are not English words. Annoying.
 
 \subsection{Driver}
-Download the correct driver for your version of Windows from Vula. Extract the .zip and install the contents of it either by executing the .exe for the Windows 7 driver .zip of by executing the stlink\_winusb\_install batch file for the Windows 8 .zip.
+Download the correct driver for your version of Windows from Vula. Extract the .zip and install the contents of it either by executing the .exe for the Windows 7 driver .zip or by executing the stlink\_winusb\_install batch file for the Windows 8 .zip.
 You can now connect the micro to your computer. If the red LED on the debugger goes solid red then the driver is probably installed correctly. If it's flashing red then the driver's probably not installed properly. 
 
 \subsection{gcc-arm-none-eabi}
