@@ -2,7 +2,7 @@
 Now that we have some idea of the software components which we need to install in order to build and debug code, let's install them.
 
 \section{Linux Install Guide}
-This section is written for Ubuntu. If you run a different distro, you may need to modify the commands slighty at best.
+This section is written for Ubuntu. If you run a different distro, you may need to modify the commands slightly at best.
 \subsection{Text Editor}
 Either Vim or Gedit will be good enough for our needs. No need to install an additional editor.
 
@@ -49,7 +49,7 @@ While one could work in Notepad, it's not a great editor for real dev work. A mu
 Once the install is complete, download the syntax highlighting file (userDefineLang.xml) from Vula and paste it into to the Notepad++ directory: \\
 \verb;%APPDATA%\Notepad++;\\
 \verb+%APPDATA%+ is a special name which Windows understands. Simply type the above string into Explorer to be taken to the directory. 
-Once installed, run Notepad++ and disable spell checking by going to \verb+Plugins -> DSpellCheck -> Settings+
+Once installed, run Notepad++ and disable spell checking by going to \verb+Plugins -> DSpellCheck -> Settings+. 
 Under File Types:
 \begin{itemize}
 \item change to \textit{Check only NOT those}
@@ -82,7 +82,7 @@ Rename \verb+openocd-0.8.0\bin-x64\openocd-x64-0.8.0.exe+ to \verb+openocd.exe+
 
 Next, we want to add the OpenOCD path to the PATH environment variable so that we can run OpenOCD from any directory.
 
-Go to \verb+Control Panel\ System \Advanced System Settings+. Under User Variables, click the Path variable and click Edit. You’ll see a list of paths (possibly only 1). Append your OpenOCD binary path to the end.
+Go to \verb+Control Panel -> System -> Advanced System Settings+. Under User Variables, click the Path variable and click Edit. You’ll see a list of paths (possibly only 1). Append your OpenOCD binary path to the end.
 Something like:
 \begin{verbatim}
 ;C:\Program Files\openocd-0.8.0\bin-x64\
@@ -91,7 +91,7 @@ Note: The semicolon separating the paths is critical Click OK a few times
 
 To test that OpenOCD is accessible and working, connect your micro and run the following.
 \begin{lstlisting}[style=BashStyle]
-> openocd.exe -f interface/stlink-v2.cfg -f target/stm32f0x_stlink.cfg
+$ openocd.exe -f interface/stlink-v2.cfg -f target/stm32f0x_stlink.cfg
 \end{lstlisting}
 If you get a message about 4 breakpoints and 2 watchpoints, you're all good.
 
