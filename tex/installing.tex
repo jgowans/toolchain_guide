@@ -12,8 +12,7 @@ Run the following commands to add the PPA to your system and install gcc-arm-non
 \begin{lstlisting}[style=BashStyle]
 $ sudo apt-add-repository ppa:terry.guo/gcc-arm-embedded
 $ sudo apt-get update
-$ sudo apt-get install gcc-arm-none-eabi=4-8-2014q2*
-$ sudo apt-mark hold gcc-arm-none-eabi
+$ sudo apt-get install gcc-arm-none-eabi
 \end{lstlisting}
 The reason that we need to put a hold on the package after installing it is that certain versions of Ubuntu have an older version of the package in their repos, but due to an error in the version numbering system the older version is seen as a new version and hence our version gets replaced with an older version the next time you do an update. Doing a hold prevents this. \\
 
