@@ -14,8 +14,6 @@ $ sudo apt-add-repository ppa:terry.guo/gcc-arm-embedded
 $ sudo apt-get update
 $ sudo apt-get install gcc-arm-none-eabi
 \end{lstlisting}
-The reason that we need to put a hold on the package after installing it is that certain versions of Ubuntu have an older version of the package in their repos, but due to an error in the version numbering system the older version is seen as a new version and hence our version gets replaced with an older version the next time you do an update. Doing a hold prevents this. \\
-
 You can check that the tools have been successfully installed, open a new terminal and run the following. 
 \begin{lstlisting}[style=BashStyle]
 $ arm-none-eabi-gdb --version
@@ -64,8 +62,8 @@ You can now connect the micro to your computer. If the red LED on the debugger g
 Download the executable from Vula and run it. When the install is complete you will be presented with some tick boxes. Tick the one called \textit{Add path to environment variable} and leave the others as defaults. By adding it to the path you are able to execute the tools from any directory rather than having to have your terminal in a specific directory. 
 Close the terminal which appears and launch a fresh one. Check that the tools are accessible by running:
 \begin{lstlisting}[style=BashStyle]
-> arm-none-eabi-gdb --version
-> arm-none-eabi-ld --version
+$ arm-none-eabi-gdb --version
+$ arm-none-eabi-ld --version
 \end{lstlisting}
 If some words about the GNU debugger and linker appear, it's working. 
 If it goes on about \textit{not recognised as an internal or external command} it's broken. Re-install gcc-arm-none and tick the path box.
